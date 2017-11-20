@@ -38,5 +38,5 @@
 
 ##### Last Changes:
 1. Updated views/pizza.html with correctly compressed images.
-2. Updated views/js/main.js with changes in sizeslider function.
+2. Updated views/js/main.js with changes in changeSliderLabel function.
 # harpreetsetia.github.io
