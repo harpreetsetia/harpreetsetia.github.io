@@ -419,6 +419,7 @@ var pizzaElementGenerator = function(i) {
 };
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
+
 var resizePizzas = function(size) {
     window.performance.mark("mark_start_resize"); // User Timing API function
 
@@ -438,7 +439,6 @@ var resizePizzas = function(size) {
                 console.log("bug in changeSliderLabel");
         }
     }
-
     changeSliderLabel(size);
 
     // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
@@ -479,7 +479,7 @@ var resizePizzas = function(size) {
             newwidth[i] = (randomPizzaContainer[i].offsetWidth + dx) + 'px';
         }
         // Created a new for loop to set the styles of the containers prevent the browser from having to rerender and paint so much. 
-        for (var i = 0; i < pizzaContainerLength; i++) {
+        for (i = 0; i < pizzaContainerLength; i++) {
             randomPizzaContainer[i].style.width = newwidth[i];
         }
     }
@@ -531,10 +531,12 @@ function updatePositions() {
     window.performance.mark("mark_start_frame");
 
     var items = document.querySelectorAll('.mover');
+    var scrollTop;
+    var phase;
     for (var i = 0; i < items.length; i++) {
         // document.body.scrollTop is no longer supported in Chrome.
-        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        var phase = Math.sin((scrollTop / 1250) + (i % 5));
+        scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        phase = Math.sin((scrollTop / 1250) + (i % 5));
         items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     }
 
@@ -558,8 +560,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Calculates number of pizzas needed to fill the browser window.
     var pizzaNum = (window.innerHeight / 75) + (window.innerWidth / 75);
+    var elem;
     for (var i = 0; i < pizzaNum; i++) {
-        var elem = document.createElement('img');
+        elem = document.createElement('img');
         elem.className = 'mover';
         elem.src = "images/pizza.png"; //loads the pizza image from the files
         elem.style.height = "100px";
