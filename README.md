@@ -36,4 +36,7 @@
 
 4. In the changePizzaSizes function I created an additional for loop for setting the element's width. This was done to group all of the DOM calls and the Rendering together in separate loops. This prevents the browser from having to render the page over and over in between setting the styles.
 
+##### Last Changes:
+1. Updated views/pizza.html with correctly compressed images.
+2. Updated views/js/main.js with changes in sizeslider function.
 # harpreetsetia.github.io
